@@ -15,10 +15,10 @@ pub trait Platform {
 pub fn probe() -> Option<Box<Platform>> {
     let rust = Rust {};
     let fonky = Fonky {};
-    if rust.probe() {
-        Some(Box::new(rust))
-    } else if fonky.probe() {
+    if fonky.probe() {
         Some(Box::new(fonky))
+    } else if rust.probe() {
+        Some(Box::new(rust))
     } else {
         None
     }

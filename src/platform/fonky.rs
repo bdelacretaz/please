@@ -15,7 +15,7 @@ impl Platform for Fonky {
     fn build(&self) -> bool {
         println!("building a Fonky project");
 
-        let output = Command::new("ls").arg("-l").output().expect(
+        let output = Command::new("cp").arg("fonky.txt").arg("fonky.out").output().expect(
             "Fonky build failed",
         );
 
@@ -29,7 +29,7 @@ impl Platform for Fonky {
     fn run(&self) -> bool {
         println!("running a Fonky project");
 
-        let output = Command::new("who").output().expect(
+        let output = Command::new("cat").arg("fonky.out").output().expect(
             "Fonky run failed",
         );
 

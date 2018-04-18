@@ -7,7 +7,7 @@ pub struct Rust {}
 
 impl Platform for Rust {
     fn probe(&self) -> bool {
-        metadata("./Cargo_TODO_DISABLED_FOR_TESTING_FONKY.toml")
+        metadata("./Cargo.toml")
             .map(|data| data.is_file())
             .unwrap_or(false)
     }
