@@ -3,20 +3,20 @@ use super::Platform;
 use std::fs::metadata;
 use std::process::Command;
 
-pub struct Rust {}
+pub struct Fonky {}
 
-impl Platform for Rust {
+impl Platform for Fonky {
     fn probe(&self) -> bool {
-        metadata("./Cargo_TODO_DISABLED_FOR_TESTING_FONKY.toml")
+        metadata("./fonky.txt")
             .map(|data| data.is_file())
             .unwrap_or(false)
     }
 
     fn build(&self) -> bool {
-        println!("building a Rust project");
+        println!("building a Fonky project");
 
-        let output = Command::new("cargo").arg("build").output().expect(
-            "cargo build failed",
+        let output = Command::new("ls").arg("-l").output().expect(
+            "Fonky build failed",
         );
 
         println!("{}", String::from_utf8_lossy(&output.stdout));
@@ -27,10 +27,10 @@ impl Platform for Rust {
     }
 
     fn run(&self) -> bool {
-        println!("running a Rust project");
+        println!("running a Fonky project");
 
-        let output = Command::new("cargo").arg("run").output().expect(
-            "cargo run failed",
+        let output = Command::new("who").output().expect(
+            "Fonky run failed",
         );
 
         println!("{}", String::from_utf8_lossy(&output.stdout));
